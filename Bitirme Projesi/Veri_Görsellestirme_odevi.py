@@ -49,7 +49,7 @@ harcama_verileri = [data['R&D Spend'], data['Administration'], data['Marketing S
 harcama_etiketleri = ['R&D Harcaması', 'Yönetim Harcaması', 'Pazarlama Harcaması']
 
 plt.figure(figsize=(12, 8))
-box_plot = plt.boxplot(harcama_verileri, labels=harcama_etiketleri, patch_artist=True)
+box_plot = plt.boxplot(harcama_verileri, tick_labels=harcama_etiketleri, patch_artist=True)
 
 colors = ['lightblue', 'lightgreen', 'lightcoral']
 for patch, color in zip(box_plot['boxes'], colors):
@@ -70,4 +70,4 @@ for i, (veri, etiket) in enumerate(zip(harcama_verileri, harcama_etiketleri)):
     print(f"  Ortalama: ${veri.mean():,.2f}")
     print(f"  Medyan: ${veri.median():,.2f}")
     print(f"  Standart Sapma: ${veri.std():,.2f}")
-    print("-" * 30) 
+    print("-" * 30)

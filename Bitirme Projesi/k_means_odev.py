@@ -1,6 +1,11 @@
+import os
+import warnings
+os.environ['OMP_NUM_THREADS'] = '1'
+warnings.filterwarnings('ignore', category=UserWarning, module='sklearn.cluster._kmeans')
+
 import pandas as pd
-from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
 data = pd.read_csv('dava.csv')
@@ -118,7 +123,7 @@ for i, feature in enumerate(features_for_clustering):
         cluster_data_list.append(cluster_values)
         cluster_labels_list.append(f'Küme {cluster}')
     
-    ax.boxplot(cluster_data_list, labels=cluster_labels_list)
+    ax.boxplot(cluster_data_list, tick_labels=cluster_labels_list)
     ax.set_title(feature)
     ax.grid(True, alpha=0.3)
 
